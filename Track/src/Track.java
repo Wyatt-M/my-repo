@@ -52,35 +52,17 @@ public class Track {
 		bitRate = Integer.parseInt(Track.in.nextLine());
 	}
 
-	public static int bit(int bitRate) {
+	public static String sec(int d) {
+		int min = d / 60;
+		int sec = d - (min * 60);
 		
-		if (bitRate == 128 || bitRate == 160) {
-			System.out.print(bitRate + "Good");
-		} 
-		else if (bitRate == 192 || bitRate == 256) {
-			System.out.print(bitRate + "Better");
-		}
-		else if (bitRate == 320) {
-			System.out.print(bitRate + "Best");;
-		}
-		return bitRate;
-		 
-		
+		return min + String.format(":") + sec;
 	}
 	
-	public static int seconds(int duration) {
-		int min = duration / 60;
-		int sec = duration - (min * 60);
-		
-		System.out.print(duration);;
-		return duration;
-	}
-	
-	public static void print() {
-		
+	public static void print() {		
 		System.out.println(trackNum + " - " + title);
 		System.out.println(artist);
-		System.out.println(duration);
+		System.out.println(Track.sec(duration));
 		System.out.println(bitRate);
 		
 	}
