@@ -130,7 +130,7 @@ public class VideoGame {
 		String Money = fmt.format(cost);
 		
 		System.out.print(Money);
-		System.out.print(VideoGame.Age(i));
+		System.out.print(i);
 	}
 
 }
