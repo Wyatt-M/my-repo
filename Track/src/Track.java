@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Track {
@@ -56,12 +57,11 @@ public class Track {
 		int min = d / 60;
 		int sec = d - (min * 60);
 		
-		return min + String.format(":") + sec;
+		return String.format(min + " : " + sec);
 	}
-	
 	public static void print() {		
 		System.out.println(trackNum + " - " + title);
-		System.out.println(artist);
+		System.out.println(artist);	
 		System.out.println(Track.sec(duration));
 		System.out.println(bitRate);
 		

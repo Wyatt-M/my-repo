@@ -51,6 +51,10 @@ public class VideoGame {
 	private static double cost;
 	public double getCost() { return cost; }
 	public void setCost(double c) { cost = c; }
+	
+	public static int age;
+	public static int getAge() { return age; }
+	public void setCost(int a) { age = a; }
 	// TODO Create getters/setters for every field 12pts
 		
 	// TODO Create default constructor to prompt for game information 12pts
@@ -68,17 +72,28 @@ public class VideoGame {
 		System.out.print("Enter number of players: ");
 		numPlay = Integer.parseInt(VideoGame.in.nextLine());
 		
-		System.out.print("Enter the game rating (ex. E, E 10+): ");
+		System.out.print("Enter the game rating (ex. C, E, E 10+, T, M, A): ");
 		gRate = VideoGame.in.nextLine();
 		
 		System.out.print("Enter cost: ");
 		cost = Double.parseDouble(VideoGame.in.nextLine());
 		
+		System.out.print("Enter age: ");
+		age = Integer.parseInt(VideoGame.in.nextLine());
+		
 	}
 	// TODO Create function to prompt the individual for their age and return if they are allowed 8pts
 	// to play the game based on the ESRB ratings chart and the information provided.
-	public static void age() {
+	public static String Age(String gR, int age) {
+		String i = "";
 		
+		if (gR == "C" && age > 0) {
+			 return i = "You can play the game";
+		}
+		
+		
+		return i;
+
 		
 	}
 	
@@ -115,6 +130,7 @@ public class VideoGame {
 		String Money = fmt.format(cost);
 		
 		System.out.print(Money);
+		System.out.print(VideoGame.Age(i));
 	}
 
 }
