@@ -21,7 +21,7 @@ public class SentenceAnalyzer {
 		System.out.print("Type a sentence: ");
 		String sentence = in.nextLine();
 		
-		String pattern = "^[A-Z][a-z,;'\"\\s]+[.?]$";
+		String pattern = "^[A-Z][a-zA-Z\\s]+[.?]$";
 		
 		String trimmed = sentence.trim();
 		int words = trimmed.isEmpty() ? 0 : trimmed.split("\\s+").length;
@@ -30,7 +30,7 @@ public class SentenceAnalyzer {
 			System.out.println("Correct");
 			System.out.println("The sentence is " + sentence.length() + " characters long.");
 			System.out.println("The sentence is " + words + " words long.");
-			System.out.println(words);
+			System.out.println(sentence.substring(0, sentence.length() - 1));
 		}
 		else {
 			System.out.println("Incorrect sentence structure.");
