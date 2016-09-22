@@ -13,17 +13,15 @@ public class LoopValues {
 		List<Integer> x = new ArrayList<Integer>();
 		
 		int count = 0;
-		
+		int num = 0;
 		do {
 			System.out.print("Enter a number, a zero will exit the loop: ");
-			int num = Integer.parseInt(in.nextLine());
+			num = Integer.parseInt(in.nextLine());
 			
 			x.add(num);
 			count++;
-			if(num == 0){
-				break;
-			}
-		} while (count > 0);
+
+		} while (num > 0);
 
 		int sum = 0;
 		
