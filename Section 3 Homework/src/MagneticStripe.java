@@ -25,6 +25,10 @@ public class MagneticStripe {
 		tracks.add("%B6011000000000012^DRAKE/DAMON E             ^18071X100000*000000000XXX000000?");
 		tracks.add("%B300012552615478^DUCK/DONALD               ^1806Z3011225*000378000XXX000142?");
 
+		
+		for(int i = 0; i < 0; i++) {
+			
+		}
 	}
 	
 	/*--- CLASS INSTANCE CODE ---*/
@@ -51,5 +55,15 @@ public class MagneticStripe {
 	
 	public void print() {
 		
+		
+		
 	}
+	
+	public void get() {
+		
+		String part = tracks.split("^");
+		
+	}
+	
+	
 }
