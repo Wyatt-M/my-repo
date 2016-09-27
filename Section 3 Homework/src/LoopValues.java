@@ -12,14 +12,12 @@ public class LoopValues {
 		
 		List<Integer> x = new ArrayList<Integer>();
 		
-		int count = 0;
 		int num = 0;
 		do {
 			System.out.print("Enter a number, a zero will exit the loop: ");
 			num = Integer.parseInt(in.nextLine());
 			
 			x.add(num);
-			count++;
 
 		} while (num > 0);
 

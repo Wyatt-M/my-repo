@@ -22,12 +22,13 @@ public class MagneticStripe {
 	public static void main(String[] args) {
 		List<String> tracks = new ArrayList<String>();
 		
+		// Data Stripe 1
 		tracks.add("%B6011000000000012^DRAKE/DAMON E             ^18071X100000*000000000XXX000000?");
-		tracks.add("%B300012552615478^DUCK/DONALD               ^1806Z3011225*000378000XXX000142?");
-
+		tracks.add("%B300012552615478^DUCK/DONALD               ^1806Z3011225*000378000XXX000142?");		
 		
-		for(int i = 0; i < 0; i++) {
-			
+		for(String s : tracks) {
+			MagneticStripe stripe = new MagneticStripe(s);
+			stripe.print();
 		}
 	}
 	
@@ -53,16 +54,41 @@ public class MagneticStripe {
 	public void setLastName(String ln) { ln = lastName; }
 	
 	
-	public void print() {
+	public MagneticStripe(String track) {
+		/*
+		 * String[] trk = track.split("\^")
+		 * %B300012552615478 - 0 - trk[0].replaceAll(%B, "") | trk[0].substring(2) accountNumber =
+		 * "^[3456]{1}[0-9]{14,15}$" - 
+		 * 
+		 * 
+		 * DUCK/DONALD - 1     
+		 * x = trk[1].splt("/")
+		 * x[0] = lastName, x[1].trim() = firstName
+		 * 
+		 * 
+		 * 1806Z3011225*000378000XXX000142? - 2
+		 * trk[2].substring(0, 2) = year, trk[2].substring(2, 2) = month
+		 */
+		String[] trk = track.split("\\^");
 		
+		accountNumber = trk[0].replaceAll("%B", "");
+		
+		String[] x = trk[1].split("/");
+		lastName = x[0];
+		firstName = x[1].trim();
+		
+		expYear = trk[2].substring(0, 2);
+		expMonth = trk[2].substring(3, 4);
 		
 		
 	}
 	
-	public void get() {
-		
-		String part = tracks.split("^");
-		
+	
+	public void print() {
+		System.out.println("Your account number is: " + getAccountNumber());
+		System.out.println("First name: " + getFirstName() + " " + "Last name: " +getLastName());
+		System.out.println("Exp Year: " + getExpYear() + " " +"Exp Month: " + getExpMonth());
+		System.out.println();
 	}
 	
 	
