@@ -42,7 +42,8 @@ public class Program {
 		 * $ - ends with
 		 * 
 		 * Quantifiers
-		 * . - 0 or more - anything else ^d.$
+		 * * - 0 or more - anything else ^d.$
+		 * . - almost everything except line/carriage returns 
 		 * + - 1 or more
 		 * {x} - must match x number of times
 		 * {x, y} - must match x -y number of times only
