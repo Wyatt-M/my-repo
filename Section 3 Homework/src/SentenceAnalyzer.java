@@ -16,15 +16,38 @@ import java.util.Scanner;
 public class SentenceAnalyzer {
 	public static Scanner in = new Scanner(System.in);
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		System.out.print("Type a sentence: ");
 		String sentence = in.nextLine();
 		
-		String pattern = "^[A-Z][a-zA-Z\\s]+[.?]$";
+		String pattern = "^[A-Z]{1}.*[\\.\\?]{1}$";
 		
 		String trimmed = sentence.trim();
 		int words = trimmed.isEmpty() ? 0 : trimmed.split("\\s+").length;
+		// sentence.split(" ")
+		// for(String s in splits){
+		// s.replace(".", "").replace("?", "")
+		
+		// extra credit
+		String[] word = sentence.replace(".", "").replace("?", "").split(" ");
+		
+		int[] letters = new int[26];
+		// 0|1|2|3
+		// A|B|C|D
+		
+		for(String w : word) {
+			char[] characters = w.toCharArray();
+			for(char c : characters) {
+				int index = (int)Character.toUpperCase(c) - 65;
+				letters[index]++;
+			}
+		}
+		
+		for(int i = 0; i < letters.length; i++) {
+			char c = (char)(i + 65);
+			System.out.println(c + " used " + letters[i] + " many times");
+		}
+		// end of extra credit
 		
 		if(sentence.matches(pattern)){
 			System.out.println("Correct");

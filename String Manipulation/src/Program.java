@@ -43,8 +43,8 @@ public class Program {
 		 * 
 		 * Quantifiers
 		 * * - 0 or more - anything else ^d.$
-		 * . - almost everything except line/carriage returns 
 		 * + - 1 or more
+		 * . - almost everything except line/carriage returns 
 		 * {x} - must match x number of times
 		 * {x, y} - must match x -y number of times only
 		 * {x,} must match minimum of x number of times to unlimited
