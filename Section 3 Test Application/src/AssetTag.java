@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -58,6 +57,9 @@ public class AssetTag {
 		// TODO validate and use the following tags:
 		List<String> tracks = new ArrayList<String>();
 		
+		//0000022 CMP MN M121 000217 (2016 01 13) A3F
+		//0000011 CMP MN M108J 000311 20140509 460
+		
 		tracks.add("0000022CMPMNM121 00021720160113A3F");
 		tracks.add("0000158CMPMNM121 00021720160113D66");
 		tracks.add("0000311PHNMNM102 00046820140416EEF");
@@ -107,15 +109,50 @@ public class AssetTag {
 	
 	public AssetTag(String track) {
 		
-		//String reg = ("^[0-9]$", 7);
+		dataID = track.substring(0, 7);
+		deviceType = track.substring(7, 10);
+		building = track.substring(10, 12);
+		roomNum = track.substring(12, 17).trim();
+		poNum = track.substring(17, 23);
+		tagDate = track.substring(23, 31);
+		checksum = track.substring(31, 34);
 		
-		String[] data = track.split("^[0-9]$", 7);
 		
-		dataID = Arrays.toString(data);
+		dataID = dataID.replaceFirst("^0*", "");
+		
+		
+		deviceType = deviceType.replace("CMP", "Computer");
+		deviceType = deviceType.replace("LPT", "Laptop");
+		deviceType = deviceType.replace("PRN", "Printer");
+		deviceType = deviceType.replace("PRJ", "Projector");
+		deviceType = deviceType.replace("TBT", "Tablet");
+		deviceType = deviceType.replace("PHN", "Phone");
+		deviceType = deviceType.replace("OTH", "Other");
+		
+
+		building = building.replace("MN", "Main Campus");
+		building = building.replace("SA", "Sauder Extension Building");
+		building = building.replace("DC", "Downtown Campus");
+		building = building.replace("WD", "Welding Building");
+		building = building.replace("TC", "Technology Building");
+		building = building.replace("JE", "Jones Education Center");
+		
+		
+		String year = tagDate.substring(0, 4);
+		String month = tagDate.substring(4, 6);
+		String day = tagDate.substring(6, 8);
+		tagDate = (month + "/" + day + "/" + year);
+		
+		poNum = poNum.replaceFirst("^0*", "");
 	}
 	
 	public void print() {
-		System.out.println(getDataID());
+		System.out.println("ID: " + getDataID());
+		System.out.println(getDeviceType() + " - " +getBuilding() + " - " + getRoomNum());
+		System.out.println("PO: " + getPoNum());
+		System.out.println("Tagged: " + getTagDate());
+		System.out.println("Checksum: " + getChecksum());
+		System.out.println();
 	}
 }
 
