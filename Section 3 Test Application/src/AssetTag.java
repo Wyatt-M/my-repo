@@ -57,8 +57,17 @@ public class AssetTag {
 		// TODO validate and use the following tags:
 		List<String> tracks = new ArrayList<String>();
 		
-		//0000022 CMP MN M121 000217 (2016 01 13) A3F
-		//0000011 CMP MN M108J 000311 20140509 460
+		// 0000022 CMP MN M121 000217 (2016 01 13) A3F
+		// 0000158 CMP MN M121 000217 (2016 01 13) D66
+		// 0000311 PHN MN M102 000468 (2014 04 16) EEF
+		// 0000444 PRJ SA S102 000920 (2015 07 22) FFF
+		// 0002589 PRN JE J004 000A22 (2015 08 01) 982
+		// 0000011 CMP MN M108J 000311 (2014 05 09) 460
+		// 0001635 LPT MN M115 000311 (2015 08 07) ABE
+		// 0000387 CMP DC DC103 001422 (2013 08 07) CAB
+		// 0002020 OTH DC DC105 000918 (2012 02 02) DEF
+		// 0008511 TBT MN M104 000229 (2015 01 01) BAD
+		// 8675309 OTH MN M113 000636 (2014 06 11) DAD
 		
 		tracks.add("0000022CMPMNM121 00021720160113A3F");
 		tracks.add("0000158CMPMNM121 00021720160113D66");
@@ -108,6 +117,14 @@ public class AssetTag {
 	public void setCheckSum(String cs) { cs = checksum; }
 	
 	public AssetTag(String track) {
+		
+		
+//		String reg = "^[0-9]{7}[A-Z]{3}[A-Z]{2}[0-9A-Z]\\s?{4,5}[0-9]{8}[0-9A-Z]{3}?";
+//		if(track.matches(reg)) {
+//			dataID = track;
+//		}
+
+			
 		
 		dataID = track.substring(0, 7);
 		deviceType = track.substring(7, 10);
