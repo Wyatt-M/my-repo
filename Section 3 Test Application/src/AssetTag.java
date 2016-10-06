@@ -3,8 +3,8 @@ import java.util.List;
 
 /*
  * Asset Tags are made up of the following criteria:
- * 1.) Database ID: First 7 characters and is a 32 bit integer
- * 2.) Device Type: 3 characters long following the database id
+ * 1.) Database ID: First 7 characters and is a 32 bit integer \d7
+ * 2.) Device Type: 3 characters long following the database id \w{3}
  * 		* Valid Values Are:
  * 			- CMP - Computer
  * 			- LPT - Laptop
@@ -13,7 +13,7 @@ import java.util.List;
  * 			- TBT - Tablet
  * 			- PHN - Phone
  * 			- OTH - Other
- * 3.) Building: 2 Characters following the device type
+ * 3.) Building: 2 Characters following the device type \w{2}
  * 		* Valid Values Are:
  * 			- MN - Main Campus
  * 			- SA - Sauder Extension Building
@@ -21,12 +21,12 @@ import java.util.List;
  * 			- WD - Welding Building
  * 			- TC - Technology Building
  * 			- JE - Jones Education Center
- * 4.) Room Number: 5 Characters following the building code
+ * 4.) Room Number: 5 Characters following the building code\w{6}
  * 		* This can contain numbers, characters and spaces
- * 5.) PO Number: The PO number is 6 characters following the room number.
+ * 5.) PO Number: The PO number is 6 characters following the room number.\d{6}
  * 		* This is a 32 bit integer corresponding the Purchase Order in the database
  * 6.) Tag Date: 8 digits following PO number. 
- * 		* Format {yyyyMMdd} yyyy = 4 digit year, MM = 2 digit month, dd = 2 digit day
+ * 		* Format {yyyyMMdd} yyyy = 4 digit year, MM = 2 digit month, dd = 2 digit day 
  * 7.) Checksum: 3 hexidecimal characters matching the start of a SHA1 hash function following
  * 	   the tag date.
  * 
