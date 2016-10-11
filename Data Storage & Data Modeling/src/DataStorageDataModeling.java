@@ -48,11 +48,16 @@
 // Data Transfer Objects ( DTO )
 // -----------------------------
 // 1. JSON ( Javascript object notation ), XML ( extensible markup language )
-
+//		- data type support
+//			- strings, numbers, boolean
 // 2. XML 
 //		- Markup tag based language
 //		- Very Strict rules
 //			- must open and close tags in order
+//		- data type support
+//			- full strict typing
+//		-XSD ( XML Schema Declaration )
+//			- defines the document data types
 
 
 
